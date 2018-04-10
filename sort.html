@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>根据某个对象属性对数组进行排序</title>
+</head>
+<body>
+	<script type="text/javascript">
+		window.onload=function(){
+			var data=[{name:"zachary",age:21},{name:"nicholas",age:24}];
+			data.sort(createComparisonFunction("name"));
+			alert(data[0].name);//nicholas
+			data.sort(createComparisonFunction("age"));
+			alert(data[0].age);//21
+		}
+		function createComparisonFunction(peropertyName){
+			return function(object1,object2){
+				var value1=object1[peropertyName];
+				var value2=object2[peropertyName];
+
+				if(value1<value2){
+					return -1;
+				}else if(value1>value2){
+					return 1;
+				}else{
+					return 0;
+				}
+			}
+		}
+	</script>
+</body>
+</html>
