@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>canvas</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function runCanvas(){
+			var x=document.getElementById("mycanvas");
+			if(x.getContext){
+				//判断浏览器是否支持canvas功能
+				canvas=x.getContext("2d");
+				canvas.fillStyle="#ff00ff";
+				canvas.beginPath();
+				canvas.arc(100,100,25,0,Math.PI*2,true);
+				canvas.closePath();
+				canvas.fill();
+			}
+
+		}
+	</script>
+<canvas id="mycanvas" width="200" height="200" >
+	your brower does not support the canvas element
+</canvas>
+<input type="button" onclick="runCanvas()" value="画圆" />
+</body>
+</html>
